@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,6 +17,7 @@ public class JobSearchPage extends BasePage{
 
     public JobSearchPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public static String pageUrl = "https://www.seek.com.au";
@@ -29,8 +31,8 @@ public class JobSearchPage extends BasePage{
         return new JobSearchPage(driver);
     }
 
-    public boolean jobSearchPageOpened(){
-        JobSearchPage page = new JobSearchPage(driver);
-        return driver.getCurrentUrl().contentEquals(page.pageUrl);
+    public boolean isPageOpened(){
+        this.isPageOpened(title);
+        return true;
     }
 }
