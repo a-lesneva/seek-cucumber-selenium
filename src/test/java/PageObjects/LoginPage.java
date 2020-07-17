@@ -64,8 +64,7 @@ public class LoginPage extends BasePage{
     }
 
     public boolean isPageOpened(){
-        this.isPageOpened(title);
-        return true;
+        return this.isPageOpened(title);
     }
 
     public String getEmailErrorMessageDisplayed(){
